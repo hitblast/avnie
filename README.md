@@ -2,9 +2,9 @@
 
 <div align="center">
 
-# <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" height="40px"/> avniee
+# <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" height="40px"/> avnie
 
-A fast & user-friendly command-line interface (CLI) for **avro.py**
+A fast & user-friendly command-line interface (CLI) for **avro.py**.
 
 [![Downloads](https://static.pepy.tech/personalized-badge/avniee?period=total&units=international_system&left_color=grey&right_color=black&left_text=Downloads)](https://pepy.tech/project/avnie)
 ![Python Version](https://img.shields.io/pypi/pyversions/avro.py.svg?color=black&label=Python)
@@ -22,6 +22,15 @@ A fast & user-friendly command-line interface (CLI) for **avro.py**
 <br>
 
 </div>
+
+---
+
+> [!IMPORTANT]
+> avnie is currently in development and not yet recommended for production use, however you can take part in shaping it's future by [submitting an issue](https://github.com/hitblast/avnie/issues) to let us know what you think.
+
+---
+
+<br>
 
 ## ⚡ Overview
 
@@ -67,9 +76,7 @@ $ avnie parse "ami banglay gan gaite bhalobasi"
 $ avnie reverse "আমি বাংলায় গান গাইতে ভালবাসি"
 ```
 
-More commands and features will be available as the project progresses in its development phase. For now, you can use the commands above to get started with the basic functionalities.
-
-Additional options can be found by running `avnie <command> --help`.
+More commands and features will be available as the project progresses in its development phase. For now, you can use the commands above to get started with the basic functionalities. Additional options can be found by running `avnie <command> --help`.
 
 Some universal flags for each commands include:
 ```sh
