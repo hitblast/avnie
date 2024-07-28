@@ -20,6 +20,8 @@ pyclip = "^0.7.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.5.5"
+pytest = "^8.3.2"
+pytest-mock = "^3.14.0"
 
 [build-system]
 requires = ["poetry-core"]
