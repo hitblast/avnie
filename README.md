@@ -38,11 +38,11 @@ A fast & user-friendly command-line interface (CLI) for **avro.py**.
 
 The project is also built on top of the same Python version that avro.py is based on, so that you can have both of these installed on your local machine without needing to cross-interpret between them.
 
-<br>
-
 ## ✨ ... but for whom?
 
 The project is made for those who'd like to use their terminal as a way of quickly and conveniently typing Avro Keyboard-based Bengali text without the need for a hefty frontend UI, or for all the terminal geeks out there.
+
+<br>
 
 ## 🔨 Installation
 
@@ -51,7 +51,7 @@ This package requires **Python 3.8 or higher** to be used inside your developmen
 
 ```sh
 # Install / upgrade.
-$ pip install avro.py
+$ pip install avnie
 ```
 
 #### Homebrew (TBA)
