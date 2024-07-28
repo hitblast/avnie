@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT
 
 [tool.poetry]
-name = "avni"
+name = "avnie"
 version = "2024.7.28"
 description = "A fast & user-friendly command-line interface (CLI) for avro.py"
 authors = ["HitBlast <hitblastlive@gmail.com>"]
@@ -9,7 +9,7 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.scripts]
-avni = "avni.cli:run"
+avnie = "avnie.cli:run"
 
 [tool.poetry.dependencies]
 python = "^3.8"

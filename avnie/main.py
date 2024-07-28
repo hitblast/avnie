@@ -12,7 +12,7 @@ import avro
 
 # Setup the Typer app.
 app = typer.Typer(
-    name="avni",
+    name="avnie",
     help="A modern Pythonic implementation of Avro Phonetic.",
     add_completion=False,
 )
