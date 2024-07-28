@@ -3,7 +3,7 @@
 [tool.poetry]
 name = "avni"
 version = "2024.7.28"
-description = "A user-friendly & feature-rich CLI for avro.py"
+description = "A fast & user-friendly command-line interface (CLI) for avro.py"
 authors = ["HitBlast <hitblastlive@gmail.com>"]
 license = "MIT"
 readme = "README.md"
