@@ -34,7 +34,9 @@ def _cli_action(
             raise typer.Exit(1)
         else:
             if not (text := pyclip.paste(text=True).strip()):
-                typer.secho("No text found in the clipboard.", fg=typer.colors.RED, err=True)
+                typer.secho(
+                    "No text found in the clipboard.", fg=typer.colors.RED, err=True
+                )
                 raise typer.Exit(1)
 
     if reverse:
@@ -57,10 +59,18 @@ def _cli_action(
 @app.command()
 def parse(
     text: str = typer.Argument(None, help="The text to be converted."),
-    bijoy: bool = typer.Option(False, "--bijoy", "-b", help="Convert the text to Bijoy layout."),
-    remap_words: bool = typer.Option(True, "--remap-words", "-r", help="Remap the words."),
-    from_clipboard: bool = typer.Option(False, "--from-clipboard", "-f", help="Get the text from the clipboard."),
-    copy_on_success: bool = typer.Option(False, "--copy-on-success", "-c", help="Copy the output to the clipboard."),
+    bijoy: bool = typer.Option(
+        False, "--bijoy", "-b", help="Convert the text to Bijoy layout."
+    ),
+    remap_words: bool = typer.Option(
+        True, "--remap-words", "-r", help="Remap the words."
+    ),
+    from_clipboard: bool = typer.Option(
+        False, "--from-clipboard", "-f", help="Get the text from the clipboard."
+    ),
+    copy_on_success: bool = typer.Option(
+        False, "--copy-on-success", "-c", help="Copy the output to the clipboard."
+    ),
 ) -> None:
     _cli_action(
         text,
@@ -74,9 +84,15 @@ def parse(
 @app.command()
 def reverse(
     text: str = typer.Argument(None, help="The text to be converted."),
-    remap_words: bool = typer.Option(True, "--remap-words", "-r", help="Remap the words."),
-    from_clipboard: bool = typer.Option(False, "--from-clipboard", "-f", help="Get the text from the clipboard."),
-    copy_on_success: bool = typer.Option(False, "--copy-on-success", "-c", help="Copy the output to the clipboard."),
+    remap_words: bool = typer.Option(
+        True, "--remap-words", "-r", help="Remap the words."
+    ),
+    from_clipboard: bool = typer.Option(
+        False, "--from-clipboard", "-f", help="Get the text from the clipboard."
+    ),
+    copy_on_success: bool = typer.Option(
+        False, "--copy-on-success", "-c", help="Copy the output to the clipboard."
+    ),
 ) -> None:
     _cli_action(
         text,
