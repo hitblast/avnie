@@ -50,7 +50,7 @@ def _cli_action(
     if copy_on_success:
         pyclip.copy(output)
 
-    return output
+    typer.echo(output)
 
 
 # Define the CLI commands.
