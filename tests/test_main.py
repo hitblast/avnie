@@ -24,5 +24,7 @@ def test_reverse_bengali_to_english(mocker):
             args=["avnie", "reverse", "হ্যালো"], returncode=0, stdout="hello"
         ),
     )
-    result = subprocess.run(["avnie", "reverse", "হ্যালো"], capture_output=True, text=True)
+    result = subprocess.run(
+        ["avnie", "reverse", "হ্যালো"], capture_output=True, text=True
+    )
     assert result.stdout.strip() == "hello"
