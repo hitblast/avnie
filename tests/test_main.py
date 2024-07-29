@@ -1,30 +1,22 @@
 # SPDX-License-Identifier: MIT
 
+# Import third-party Python modules.
+from typer.testing import CliRunner
 
-# Import first-party Python modules.
-import subprocess
+# Import the module containing the CLI commands.
+from avnie.main import app
 
 
 # Test cases.
-def test_parse_english_to_bengali(mocker):
-    mocker.patch(
-        "subprocess.run",
-        return_value=subprocess.CompletedProcess(
-            args=["avnie", "parse", "hello"], returncode=0, stdout="হ্যালো"
-        ),
-    )
-    result = subprocess.run(["avnie", "parse", "hello"], capture_output=True, text=True)
+def test_parse_english_to_bengali():
+    runner = CliRunner()
+    result = runner.invoke(app, ["parse", "hyalO"])
+    assert result.exit_code == 0
     assert result.stdout.strip() == "হ্যালো"
 
 
-def test_reverse_bengali_to_english(mocker):
-    mocker.patch(
-        "subprocess.run",
-        return_value=subprocess.CompletedProcess(
-            args=["avnie", "reverse", "হ্যালো"], returncode=0, stdout="hello"
-        ),
-    )
-    result = subprocess.run(
-        ["avnie", "reverse", "হ্যালো"], capture_output=True, text=True
-    )
-    assert result.stdout.strip() == "hello"
+def test_reverse_bengali_to_english():
+    runner = CliRunner()
+    result = runner.invoke(app, ["reverse", "আমি বাংলায় গান গাই"])
+    assert result.exit_code == 0
+    assert result.stdout.strip() == "ami banglay gan gai"
