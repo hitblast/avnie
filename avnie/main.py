@@ -5,10 +5,9 @@
 from typing import Optional
 
 # Import third-party Python libraries.
-import typer
-import pyclip
 import avro
-
+import pyclip
+import typer
 
 # Setup the Typer app.
 app = typer.Typer(
@@ -41,9 +40,6 @@ def _cli_action(
 
     if reverse:
         output = avro.reverse(text, remap_words=remap_words)
-        if bijoy:
-            output = avro.to_bijoy(output)
-
     else:
         output = avro.parse(text, remap_words=remap_words)
         if bijoy:
@@ -62,8 +58,8 @@ def parse(
     bijoy: bool = typer.Option(
         False, "--bijoy", "-b", help="Convert the text to Bijoy layout."
     ),
-    remap_words: bool = typer.Option(
-        True, "--remap-words", "-r", help="Remap the words."
+    ignore_remap: bool = typer.Option(
+        False, "--ignore-remap", "-i", help="Skip remapping the words."
     ),
     from_clipboard: bool = typer.Option(
         False, "--from-clipboard", "-f", help="Get the text from the clipboard."
@@ -75,7 +71,7 @@ def parse(
     _cli_action(
         text,
         bijoy=bijoy,
-        remap_words=remap_words,
+        remap_words=not ignore_remap,
         from_clipboard=from_clipboard,
         copy_on_success=copy_on_success,
     )
@@ -84,8 +80,8 @@ def parse(
 @app.command()
 def reverse(
     text: str = typer.Argument(None, help="The text to be converted."),
-    remap_words: bool = typer.Option(
-        True, "--remap-words", "-r", help="Remap the words."
+    ignore_remap: bool = typer.Option(
+        False, "--ignore-remap", "-i", help="Skip remapping the words."
     ),
     from_clipboard: bool = typer.Option(
         False, "--from-clipboard", "-f", help="Get the text from the clipboard."
@@ -96,7 +92,7 @@ def reverse(
 ) -> None:
     _cli_action(
         text,
-        remap_words=remap_words,
+        remap_words=not ignore_remap,
         from_clipboard=from_clipboard,
         copy_on_success=copy_on_success,
         reverse=True,
