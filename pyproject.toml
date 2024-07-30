@@ -10,7 +10,6 @@ readme = "README.md"
 
 [tool.poetry.scripts]
 avnie = "avnie.main:start"
-avro = "avnie.main:start"
 build = "avnie.pyinstaller:install"
 
 [tool.poetry.dependencies]

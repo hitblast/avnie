@@ -15,9 +15,6 @@ path_to_main = str(HERE / "main.py")
 PyInstaller.__main__.run(
     [
         "--onefile",
-        "--name=avnie",
-        "--distpath=dist",
-        "--workpath=build",
         "--windowed",
         path_to_main,
     ]
