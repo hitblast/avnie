@@ -54,9 +54,29 @@ This package requires **Python 3.8 or higher** to be used inside your developmen
 $ pip install avnie
 ```
 
-#### Homebrew (TBA)
+<br>
 
-#### apt / debian (TBA)
+## ⚒️ Building from Source
+
+You'll need the following required packages in order to proceed with the manual building:
+
+- [Python 3.8 or higher](https://www.python.org/downloads/)
+- [Poetry](https://python-poetry.org/docs/)
+
+```sh
+# Clone the repository.
+$ git clone https://github.com/hitblast/avnie.git && cd avnie
+
+# Install the dependencies.
+$ poetry install --sync --all-extras
+
+# Build the package (Python).
+$ poetry build
+
+# Optionall, you can also build binaries using the included Pyinstaller configuration.
+# The script is located in: avnie/pyinstaller.py
+$ poetry run build
+```
 
 <br>
 

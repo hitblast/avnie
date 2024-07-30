@@ -9,19 +9,21 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.scripts]
-avnie = "avnie.cli:run"
+avnie = "avnie.main:start"
+avro = "avnie.main:start"
+build = "avnie.pyinstaller:install"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.8,<3.13"
 avro-py = "^2024.7.13"
 typer = "^0.12.3"
-requests = "^2.32.3"
 pyclip = "^0.7.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.5.5"
 pytest = "^8.3.2"
 pytest-mock = "^3.14.0"
+pyinstaller = "^6.9.0"
 
 [build-system]
 requires = ["poetry-core"]

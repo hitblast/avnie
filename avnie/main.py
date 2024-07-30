@@ -97,3 +97,8 @@ def reverse(
         copy_on_success=copy_on_success,
         reverse=True,
     )
+
+
+# Run the CLI.
+def start() -> None:
+    app()
