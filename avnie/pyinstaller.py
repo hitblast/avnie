@@ -15,7 +15,8 @@ path_to_main = str(HERE / "main.py")
 PyInstaller.__main__.run(
     [
         "--onefile",
-        "--windowed",
+        "--console",
+        "--clean",
         path_to_main,
     ]
 )
