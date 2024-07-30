@@ -6,7 +6,7 @@
 
 A fast & user-friendly command-line interface (CLI) for **avro.py**.
 
-[![Downloads](https://static.pepy.tech/personalized-badge/avniee?period=total&units=international_system&left_color=grey&right_color=black&left_text=Downloads)](https://pepy.tech/project/avnie)
+[![Downloads](https://static.pepy.tech/personalized-badge/avnie?period=total&units=international_system&left_color=grey&right_color=black&left_text=Downloads)](https://pepy.tech/project/avnie)
 ![Python Version](https://img.shields.io/pypi/pyversions/avro.py.svg?color=black&label=Python)
 ![License](https://img.shields.io/pypi/l/avnie.svg?color=black&label=License)
 
