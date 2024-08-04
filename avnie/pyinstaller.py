@@ -11,12 +11,13 @@ import PyInstaller.__main__
 HERE = Path(__file__).parent.absolute()
 path_to_main = str(HERE / "main.py")
 
+
 # Define the PyInstaller command.
-PyInstaller.__main__.run(
-    [
-        "--onefile",
-        "--console",
-        "--clean",
-        path_to_main,
-    ]
-)
+def install() -> None:
+    PyInstaller.__main__.run(
+        [
+            "-n=avnie",
+            "--onefile",
+            path_to_main,
+        ]
+    )

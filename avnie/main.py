@@ -13,7 +13,7 @@ import typer
 app = typer.Typer(
     name="avnie",
     help="A modern Pythonic implementation of Avro Phonetic.",
-    add_completion=False,
+    add_completion=True,
 )
 
 
@@ -102,3 +102,7 @@ def reverse(
 # Run the CLI.
 def start() -> None:
     app()
+
+
+if __name__ == "__main__":
+    start()
