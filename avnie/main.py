@@ -52,6 +52,9 @@ def _cli_action(
 
 
 # Define the CLI commands.
+
+
+# avro parse <text> [--bijoy] [--ignore-remap] [--from-clipboard] [--copy-on-success]
 @app.command()
 def parse(
     text: str = typer.Argument(None, help="The text to be converted."),
@@ -77,6 +80,7 @@ def parse(
     )
 
 
+# avro reverse <text> [--ignore-remap] [--from-clipboard] [--copy-on-success]
 @app.command()
 def reverse(
     text: str = typer.Argument(None, help="The text to be converted."),

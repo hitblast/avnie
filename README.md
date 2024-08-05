@@ -54,10 +54,6 @@ This package requires **Python 3.8 or higher** to be used inside your developmen
 $ pip install avnie
 ```
 
-#### Homebrew (TBA)
-
-#### apt / debian (TBA)
-
 <br>
 
 ## 🚀 Usage
@@ -92,6 +88,35 @@ $ avnie parse "wikipedia" -r  # no remap
 
 # Convert to Bijoy on output.
 $ avnie parse "আমি বাংলায় গান গাইতে ভালবাসি" --bijoy  # or -b
+```
+
+<br>
+
+## 🔨 Building
+
+#### Requirements
+- [Python 3.8](https://www.python.org) or higher
+- The [Poetry](https://python-poetry.org) package manager
+
+
+#### Steps
+
+```sh
+# Create a virtual environment using the venv command.
+$ python -m venv venv && source venv/bin/activate
+
+# Install the required dependencies.
+$ poetry install --sync
+
+# (Optional) Update the dependencies.
+$ poetry update
+```
+
+#### Running Unit Tests
+
+```sh
+# Use the following command to run the unit tests.
+$ poetry run pytest .
 ```
 
 <br>

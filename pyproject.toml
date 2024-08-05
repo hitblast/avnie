@@ -2,7 +2,7 @@
 
 [tool.poetry]
 name = "avnie"
-version = "2024.7.30"
+version = "2024.8.6"
 description = "A fast & user-friendly command-line interface (CLI) for avro.py."
 authors = ["HitBlast <hitblastlive@gmail.com>"]
 license = "MIT"
