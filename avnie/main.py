@@ -7,8 +7,12 @@ from typing import Optional
 # Import third-party Python libraries.
 import avro
 import pyclip
+import requests
 import typer
 from typing_extensions import Annotated
+
+# Import local modules.
+from . import __version__
 
 # Setup the Typer app.
 app = typer.Typer(
@@ -109,3 +113,25 @@ def reverse(
         copy_on_success=copy_on_success,
         reverse=True,
     )
+
+
+# avro checkupdate
+@app.command()
+def checkupdate() -> None:
+    typer.echo("Checking for updates...")
+    response = requests.get("https://pypi.org/pypi/avnie/json")
+
+    if response.status_code != 200:
+        typer.secho("Failed to check for updates.", fg=typer.colors.RED, err=True)
+        typer.echo("Please try again later.")
+        raise typer.Exit(1)
+
+    latest_version = response.json()["info"]["version"]
+
+    if latest_version != __version__:
+        typer.secho("An update is available.", fg=typer.colors.YELLOW)
+        typer.echo("Please run `pip install --upgrade avnie` to update.")
+    else:
+        typer.secho("No updates available.", fg=typer.colors.GREEN)
+        typer.echo("You are already using the latest version.")
+    raise typer.Exit(0)
