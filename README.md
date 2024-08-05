@@ -58,23 +58,24 @@ $ pip install avnie
 
 ## 🚀 Usage
 
-The usage of the interface within avnie is pretty straightforward. You can use the following commands to get started:
+The usage of avnie is pretty straightforward. You can either use `avro` or `avnie` as the keyword for executing avnie commands. Here are some examples:
 
 ```sh
 # Get basic help regarding usage.
 # This also provides additional functionality like autocompletion (TBA).
 $ avnie --help
+$ avro --help  # or
 
 # Parse a given English text to Bengali.
-$ avnie parse "ami banglay gan gaite bhalobasi"
+$ avro parse "ami banglay gan gaite bhalobasi"
 
 # Reverse a given Bengali text to English.
-$ avnie reverse "আমি বাংলায় গান গাইতে ভালবাসি"
+$ avro reverse "আমি বাংলায় গান গাইতে ভালবাসি"
 ```
 
 More commands and features will be available as the project progresses in its development phase. For now, you can use the commands above to get started with the basic functionalities. Additional options can be found by running `avnie <command> --help`.
 
-Some universal flags for each commands include:
+Some **universal flags** for each commands include:
 ```sh
 # Automatically copy the output to clipboard.
 $ avnie parse "oiTa ke?" --copy-on-success  # or -c
@@ -84,7 +85,7 @@ $ avnie parse --from-clip # or -f
 
 # Toggle between remap and full manual mode.
 $ avnie parse "wikipedia"  # remap
-$ avnie parse "wikipedia" -r  # no remap
+$ avnie parse "wikipedia" --ignore-remap  # no remap (can also use --i)
 
 # Convert to Bijoy on output.
 $ avnie parse "আমি বাংলায় গান গাইতে ভালবাসি" --bijoy  # or -b
