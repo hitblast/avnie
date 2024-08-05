@@ -8,6 +8,7 @@ from typing import Optional
 import avro
 import pyclip
 import typer
+from typing_extensions import Annotated
 
 # Setup the Typer app.
 app = typer.Typer(
@@ -57,18 +58,22 @@ def _cli_action(
 @app.command()
 def parse(
     text: str = typer.Argument(None, help="The text to be converted."),
-    bijoy: bool = typer.Option(
-        False, "--bijoy", "-b", help="Convert the text to Bijoy layout."
-    ),
-    ignore_remap: bool = typer.Option(
-        False, "--ignore-remap", "-i", help="Skip remapping the words."
-    ),
-    from_clipboard: bool = typer.Option(
-        False, "--from-clipboard", "-f", help="Get the text from the clipboard."
-    ),
-    copy_on_success: bool = typer.Option(
-        False, "--copy-on-success", "-c", help="Copy the output to the clipboard."
-    ),
+    bijoy: Annotated[
+        bool, typer.Option("--bijoy", "-b", help="Convert the text to Bijoy layout.")
+    ] = False,
+    ignore_remap: Annotated[
+        bool, typer.Option("--ignore-remap", "-i", help="Skip remapping the words.")
+    ] = False,
+    from_clipboard: Annotated[
+        bool,
+        typer.Option("--from-clipboard", "-f", help="Get the text from the clipboard."),
+    ] = False,
+    copy_on_success: Annotated[
+        bool,
+        typer.Option(
+            "--copy-on-success", "-c", help="Copy the output to the clipboard."
+        ),
+    ] = False,
 ) -> None:
     _cli_action(
         text,
@@ -83,15 +88,19 @@ def parse(
 @app.command()
 def reverse(
     text: str = typer.Argument(None, help="The text to be converted."),
-    ignore_remap: bool = typer.Option(
-        False, "--ignore-remap", "-i", help="Skip remapping the words."
-    ),
-    from_clipboard: bool = typer.Option(
-        False, "--from-clipboard", "-f", help="Get the text from the clipboard."
-    ),
-    copy_on_success: bool = typer.Option(
-        False, "--copy-on-success", "-c", help="Copy the output to the clipboard."
-    ),
+    ignore_remap: Annotated[
+        bool, typer.Option("--ignore-remap", "-i", help="Skip remapping the words.")
+    ] = False,
+    from_clipboard: Annotated[
+        bool,
+        typer.Option("--from-clipboard", "-f", help="Get the text from the clipboard."),
+    ] = False,
+    copy_on_success: Annotated[
+        bool,
+        typer.Option(
+            "--copy-on-success", "-c", help="Copy the output to the clipboard."
+        ),
+    ] = False,
 ) -> None:
     _cli_action(
         text,
