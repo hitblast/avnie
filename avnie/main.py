@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: MIT
 
 # Import first-party Python libraries.
-from typing import Optional
 
 # Import third-party Python libraries.
 import avro
@@ -38,41 +37,14 @@ def _handle_no_text(
     return text
 
 
-# Helper function for CLI actions.
-def _cli_action(
-    text: str,
-    *,
-    bijoy: bool = False,
-    remap_words: bool = True,
-    from_clipboard: bool = False,
-    copy_on_success: bool = False,
-    reverse: bool = False,
-) -> Optional[str]:
-    text = _handle_no_text(text, from_clipboard)
-
-    if reverse:
-        output = avro.reverse(text, remap_words=remap_words)
-    else:
-        output = avro.parse(text, remap_words=remap_words)
-        if bijoy:
-            output = avro.to_bijoy(output)
-
-    if copy_on_success:
-        pyclip.copy(output)
-
-    typer.echo(output)
-
-
 # Define the CLI commands.
-# Unless needed to modify the backend functions written above, you should be able to ignore the following commands.
-
-
 # avro parse <text> [--bijoy] [--ignore-remap] [--from-clipboard] [--copy-on-success]
 @app.command()
 def parse(
     text: str = typer.Argument(None, help="The text to be converted."),
     bijoy: Annotated[
-        bool, typer.Option("--bijoy", "-b", help="Convert the text to Bijoy layout.")
+        bool,
+        typer.Option("--bijoy", "-b", help="Convert the text to Bijoy layout."),
     ] = False,
     ignore_remap: Annotated[
         bool, typer.Option("--ignore-remap", "-i", help="Skip remapping the words.")
@@ -89,13 +61,14 @@ def parse(
     ] = False,
 ) -> None:
     text = _handle_no_text(text, from_clipboard)
-    _cli_action(
-        text,
-        bijoy=bijoy,
-        remap_words=not ignore_remap,
-        from_clipboard=from_clipboard,
-        copy_on_success=copy_on_success,
-    )
+
+    output = avro.parse(text, remap_words=not ignore_remap)
+    if bijoy:
+        output = avro.to_bijoy(output)
+
+    typer.echo(output)
+    if copy_on_success:
+        pyclip.copy(output)
 
 
 # avro reverse <text> [--ignore-remap] [--from-clipboard] [--copy-on-success]
@@ -117,13 +90,11 @@ def reverse(
     ] = False,
 ) -> None:
     text = _handle_no_text(text, from_clipboard)
-    _cli_action(
-        text,
-        remap_words=not ignore_remap,
-        from_clipboard=from_clipboard,
-        copy_on_success=copy_on_success,
-        reverse=True,
-    )
+    output = avro.reverse(text, remap_words=not ignore_remap)
+
+    typer.echo(output)
+    if copy_on_success:
+        pyclip.copy(output)
 
 
 # avro tobijoy <text> [--from-clipboard] [--copy-on-success]
@@ -144,6 +115,7 @@ def tobijoy(
 ) -> None:
     text = _handle_no_text(text, from_clipboard)
     output = avro.to_bijoy(text)
+
     typer.echo(output)
     if copy_on_success:
         pyclip.copy(output)
