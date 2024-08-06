@@ -30,9 +30,7 @@ def _handle_no_text(
             raise typer.Exit(1)
         else:
             if not (text := pyclip.paste(text=True).strip()):
-                typer.secho(
-                    "No text found in the clipboard.", fg=typer.colors.RED, err=True
-                )
+                typer.secho("No text found in the clipboard.", fg=typer.colors.RED, err=True)
                 raise typer.Exit(1)
     return text
 
@@ -55,9 +53,7 @@ def parse(
     ] = False,
     copy_on_success: Annotated[
         bool,
-        typer.Option(
-            "--copy-on-success", "-c", help="Copy the output to the clipboard."
-        ),
+        typer.Option("--copy-on-success", "-c", help="Copy the output to the clipboard."),
     ] = False,
 ) -> None:
     text = _handle_no_text(text, from_clipboard)
@@ -84,9 +80,7 @@ def reverse(
     ] = False,
     copy_on_success: Annotated[
         bool,
-        typer.Option(
-            "--copy-on-success", "-c", help="Copy the output to the clipboard."
-        ),
+        typer.Option("--copy-on-success", "-c", help="Copy the output to the clipboard."),
     ] = False,
 ) -> None:
     text = _handle_no_text(text, from_clipboard)
@@ -108,9 +102,7 @@ def tobijoy(
     ] = False,
     copy_on_success: Annotated[
         bool,
-        typer.Option(
-            "--copy-on-success", "-c", help="Copy the output to the clipboard."
-        ),
+        typer.Option("--copy-on-success", "-c", help="Copy the output to the clipboard."),
     ] = False,
 ) -> None:
     text = _handle_no_text(text, from_clipboard)
