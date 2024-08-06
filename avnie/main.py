@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: MIT
 
-
 # Import first-party Python libraries.
 from typing import Optional
 
@@ -17,8 +16,26 @@ from . import __version__
 # Setup the Typer app.
 app = typer.Typer(
     name="avnie",
-    help="A modern Pythonic implementation of Avro Phonetic.",
+    help="A fast & user-friendly command-line interface (CLI) for avro.py.",
 )
+
+
+# Helper function for handling "no text" error.
+def _handle_no_text(
+    text: str,
+    from_clipboard: bool,
+) -> str:
+    if not text:
+        if not from_clipboard:
+            typer.secho("No text provided.", fg=typer.colors.RED, err=True)
+            raise typer.Exit(1)
+        else:
+            if not (text := pyclip.paste(text=True).strip()):
+                typer.secho(
+                    "No text found in the clipboard.", fg=typer.colors.RED, err=True
+                )
+                raise typer.Exit(1)
+    return text
 
 
 # Helper function for CLI actions.
@@ -31,16 +48,7 @@ def _cli_action(
     copy_on_success: bool = False,
     reverse: bool = False,
 ) -> Optional[str]:
-    if not text:
-        if not from_clipboard:
-            typer.secho("No text provided.", fg=typer.colors.RED, err=True)
-            raise typer.Exit(1)
-        else:
-            if not (text := pyclip.paste(text=True).strip()):
-                typer.secho(
-                    "No text found in the clipboard.", fg=typer.colors.RED, err=True
-                )
-                raise typer.Exit(1)
+    text = _handle_no_text(text, from_clipboard)
 
     if reverse:
         output = avro.reverse(text, remap_words=remap_words)
@@ -56,6 +64,7 @@ def _cli_action(
 
 
 # Define the CLI commands.
+# Unless needed to modify the backend functions written above, you should be able to ignore the following commands.
 
 
 # avro parse <text> [--bijoy] [--ignore-remap] [--from-clipboard] [--copy-on-success]
@@ -79,6 +88,7 @@ def parse(
         ),
     ] = False,
 ) -> None:
+    text = _handle_no_text(text, from_clipboard)
     _cli_action(
         text,
         bijoy=bijoy,
@@ -106,6 +116,7 @@ def reverse(
         ),
     ] = False,
 ) -> None:
+    text = _handle_no_text(text, from_clipboard)
     _cli_action(
         text,
         remap_words=not ignore_remap,
@@ -113,6 +124,29 @@ def reverse(
         copy_on_success=copy_on_success,
         reverse=True,
     )
+
+
+# avro tobijoy <text> [--from-clipboard] [--copy-on-success]
+# do not use _cli_action here as it is a simple wrapper
+@app.command()
+def tobijoy(
+    text: str = typer.Argument(None, help="The text to be converted."),
+    from_clipboard: Annotated[
+        bool,
+        typer.Option("--from-clipboard", "-f", help="Get the text from the clipboard."),
+    ] = False,
+    copy_on_success: Annotated[
+        bool,
+        typer.Option(
+            "--copy-on-success", "-c", help="Copy the output to the clipboard."
+        ),
+    ] = False,
+) -> None:
+    text = _handle_no_text(text, from_clipboard)
+    output = avro.to_bijoy(text)
+    typer.echo(output)
+    if copy_on_success:
+        pyclip.copy(output)
 
 
 # avro checkupdate
