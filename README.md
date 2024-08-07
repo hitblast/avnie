@@ -107,13 +107,14 @@ If you'd like to build the project from source for your local Python installatio
 $ python -m venv venv && source venv/bin/activate
 
 # Install the required dependencies and optionally update them.
-$ poetry install --sync && poetry update
+$ make install # or poetry install --sync
+$ poetry update
 
-# You can either use `poetry build` to build the package:
-$ poetry build
-
-# or, use it directly without the command above:
+# Start using it!
 $ avnie --help
+
+# Optionally, you can also build the Python package locally.
+$ poetry build
 ```
 
 Optionally, run unit tests to ensure everything is working as expected:
@@ -143,7 +144,7 @@ If you'd like to compile the project to a binary for your respective platform, y
 $ python -m venv venv && source venv/bin/activate
 
 # Install the required dependencies and optionally update them.
-$ poetry install --sync && poetry update
+$ make install && poetry update
 
 # Compile using Nuitka. This uses the included Makefile.
 $ make build
