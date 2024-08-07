@@ -19,11 +19,14 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         include:
           - os: ubuntu-latest
-            filename: avnie-linux.bin
+            oldfile: main.bin
+            newfile: avnie-linux.bin
           - os: macos-latest
-            filename: avnie-macos.bin
+            oldfile: main.bin
+            newfile: avnie-macos.bin
           - os: windows-latest
-            filename: avnie-windows.exe
+            oldfile: main.exe
+            newfile: avnie-windows.exe
     defaults:
       run:
         shell: bash
@@ -56,7 +59,7 @@ jobs:
       run: poetry install --sync --no-interaction
 
     - name: Build
-      run: poetry run nuitka --clang --onefile --assume-yes-for-downloads avnie/main.py && mv main.* ${{ matrix.filename }}
+      run: poetry run nuitka --clang --onefile --assume-yes-for-downloads avnie/main.py && mv ${{ matrix.oldfile }} ${{ matrix.newfile }}
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
