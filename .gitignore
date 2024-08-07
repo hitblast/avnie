@@ -167,3 +167,9 @@ cython_debug/
 
 # pdoc3
 html
+
+# Build paths for Nuitka (Python)
+*.build
+*.dist
+*.onefile-build
+*.bin
