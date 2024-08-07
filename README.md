@@ -25,11 +25,6 @@ A fast & user-friendly command-line interface (CLI) for **avro.py**.
 
 ---
 
-> [!IMPORTANT]
-> avnie is currently in development and not yet recommended for production use, however you can take part in shaping it's future by [submitting an issue](https://github.com/hitblast/avnie/issues) to let us know what you think.
-
----
-
 <br>
 
 ## ⚡ Overview
@@ -53,6 +48,10 @@ This package requires **Python 3.8 or higher** to be used inside your developmen
 # Install / upgrade.
 $ pip install avnie
 ```
+
+### Prebuilt Binaries
+
+Prebuilt binaries are available for **Windows, macOS, and Linux**. You can download the latest binary from the [Releases](https://github.com/hitblast/avnie/releases) section for your respective platform. After downloading, you can add the binary to your `PATH` variable for easy access.
 
 <br>
 
@@ -93,12 +92,13 @@ $ avnie parse "আমি বাংলায় গান গাইতে ভাল�
 
 <br>
 
-## 🔨 Building
+## 🔨 Building for Python
+
+If you'd like to build the project from source for your local Python installation, you can follow the steps given below to get started:
 
 #### Requirements
 - [Python 3.8](https://www.python.org) or higher
 - The [Poetry](https://python-poetry.org) package manager
-
 
 #### Steps
 
@@ -106,23 +106,54 @@ $ avnie parse "আমি বাংলায় গান গাইতে ভাল�
 # Create a virtual environment using the venv command.
 $ python -m venv venv && source venv/bin/activate
 
-# Install the required dependencies.
-$ poetry install --sync
+# Install the required dependencies and optionally update them.
+$ poetry install --sync && poetry update
 
-# (Optional) Update the dependencies.
-$ poetry update
+# You can either use `poetry build` to build the package:
+$ poetry build
+
+# or, use it directly without the command above:
+$ avnie --help
 ```
 
-#### Running Unit Tests
+Optionally, run unit tests to ensure everything is working as expected:
 
 ```sh
-# Use the following command to run the unit tests.
+# This uses the inclued Makefile.
+$ make test
+
+# or, run the pytest framework from poetry directly.
 $ poetry run pytest .
 ```
 
-<br>
+---
+
+## 🔨 Compiling to Binaries
+
+If you'd like to compile the project to a binary for your respective platform, you can follow the steps given below to get started:
+
+#### Requirements
+- [Python 3.12](https://www.python.org) or higher
+- The [Poetry](https://python-poetry.org) package manager
+- [Clang](https://clang.llvm.org) (preferred C compiler, you can use others as well)
+
+#### Steps
+```sh
+# Create a virtual environment using the venv command.
+$ python -m venv venv && source venv/bin/activate
+
+# Install the required dependencies and optionally update them.
+$ poetry install --sync && poetry update
+
+# Compile using Nuitka. This uses the included Makefile.
+$ make build
+```
+
+After running the command above, you should either see a `main.bin` or a `main.exe` file in the project directory depending on what platform you're compiling for. You can then use this binary to run the project on your local machine.
 
 ---
+
+<br>
 
 ## 📋 License
 
