@@ -2,9 +2,13 @@
 
 
 # Import local modules.
-from .main import app
+from avnie.main import app
 
 
 # Create run function.
 def run():
+    app()
+
+
+if __name__ == "__main__":
     app()

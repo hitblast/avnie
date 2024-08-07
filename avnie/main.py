@@ -10,7 +10,7 @@ import typer
 from typing_extensions import Annotated
 
 # Import local modules.
-from . import __version__
+from avnie import __version__
 
 # Setup the Typer app.
 app = typer.Typer(
