@@ -39,11 +39,12 @@ avro = "avnie.cli:run"
 [tool.poetry.dependencies]
 python = "^3.8"
 avro-py = "^2024.7.13"
-typer = "^0.12.3"
 requests = "^2.32.3"
 pyclip = "^0.7.0"
+click = "^8.1.7"
 
 [tool.poetry.group.dev.dependencies]
+nuitka = "^2.4.5"
 ruff = "^0.5.5"
 pytest = "^8.3.2"
 pytest-mock = "^3.14.0"
