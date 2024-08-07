@@ -17,7 +17,13 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        filename: [avnie-linux.bin, avnie-macos.bin, avnie-windows.exe]
+        include:
+          - os: ubuntu-latest
+            filename: avnie-linux.bin
+          - os: macos-latest
+            filename: avnie-macos.bin
+          - os: windows-latest
+            filename: avnie-windows.exe
     defaults:
       run:
         shell: bash
