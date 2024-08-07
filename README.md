@@ -127,9 +127,9 @@ $ make test
 $ poetry run pytest .
 ```
 
----
+<br>
 
-## 🔨 Compiling to Binaries
+## ⚒️ Compiling to Binaries
 
 If you'd like to compile the project to a binary for your respective platform, you can follow the steps given below to get started:
 
