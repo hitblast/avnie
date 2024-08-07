@@ -16,7 +16,8 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]  
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        filename: [avnie-linux.bin, avnie-macos.bin, avnie-windows.exe]
     defaults:
       run:
         shell: bash
@@ -49,10 +50,10 @@ jobs:
       run: poetry install --sync --no-interaction
 
     - name: Build
-      run: poetry run nuitka --clang --onefile --assume-yes-for-downloads avnie/main.py
+      run: poetry run nuitka --clang --onefile --assume-yes-for-downloads avnie/main.py && mv main.* ${{ matrix.filename }}
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        path: avnie.*
+        path: avnie-*
         retention-days: 10
