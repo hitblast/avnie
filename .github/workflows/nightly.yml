@@ -64,5 +64,6 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
+        name: avnie-${{ matrix.os }}
         path: ${{ matrix.newfile }}
         retention-days: 10
