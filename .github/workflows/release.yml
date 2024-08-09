@@ -27,7 +27,7 @@ jobs:
 
     - name: Install dependencies & build
       run: |
-        poetry install --sync --no-interaction --no-root
+        make install
         poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
       
     - name: Publish package
@@ -49,13 +49,13 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         include:
           - os: ubuntu-latest
-            oldfile: main.bin
+            oldfile: interactive.bin
             newfile: avnie-linux.bin
           - os: macos-latest
-            oldfile: main.bin
+            oldfile: interactive.bin
             newfile: avnie-macos.bin
           - os: windows-latest
-            oldfile: main.exe
+            oldfile: interactive.exe
             newfile: avnie-windows.exe
     defaults:
       run:
@@ -86,10 +86,10 @@ jobs:
         key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
     - name: Install dependencies
-      run: poetry install --sync --no-interaction
+      run: make install
 
     - name: Build
-      run: poetry run nuitka --clang --onefile --assume-yes-for-downloads avnie/main.py && mv ${{ matrix.oldfile }} ${{ matrix.newfile }}
+      run: poetry run nuitka --clang --onefile --assume-yes-for-downloads avnie/interactive.py && mv ${{ matrix.oldfile }} ${{ matrix.newfile }}
 
     - name: Upload package to release
       uses: svenstaro/upload-release-action@v2

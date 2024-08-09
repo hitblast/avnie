@@ -49,7 +49,7 @@ This package requires **Python 3.8 or higher** to be used inside your developmen
 $ pip install avnie
 ```
 
-- ### Prebuilt Binaries (⚠️ Experimental)
+- ### Prebuilt Binaries
 
 Prebuilt binaries are available for **Windows, macOS, and Linux**. You can download the latest binary from the [Releases](https://github.com/hitblast/avnie/releases) section for your respective platform. After downloading, you can add the binary to your `PATH` variable for easy access.
 
