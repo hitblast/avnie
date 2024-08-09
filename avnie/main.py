@@ -101,5 +101,6 @@ def checkupdate() -> None:
         click.echo("You are already using the latest version.")
 
 
-if __name__ == "__main__":
+# Define the main function to run the CLI.
+def run() -> None:
     app()
