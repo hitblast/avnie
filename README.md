@@ -49,13 +49,15 @@ This package requires **Python 3.8 or higher** to be used inside your developmen
 $ pip install avnie
 ```
 
-- ### Prebuilt Binaries (⚠️ Experimental)
+- ### Prebuilt Binaries
 
 Prebuilt binaries are available for **Windows, macOS, and Linux**. You can download the latest binary from the [Releases](https://github.com/hitblast/avnie/releases) section for your respective platform. After downloading, you can add the binary to your `PATH` variable for easy access.
 
 <br>
 
 ## 🚀 Usage
+
+### 🔸 Command Mode
 
 The usage of avnie is pretty straightforward. You can either use `avro` or `avnie` as the keyword for executing avnie commands. Here are some examples:
 
@@ -88,6 +90,24 @@ $ avnie parse "wikipedia" --ignore-remap  # no remap (can also use --i)
 
 # Convert to Bijoy on output.
 $ avnie parse "আমি বাংলায় গান গাইতে ভালবাসি" --bijoy  # or -b
+```
+
+---
+
+### 🔸 Interactive Mode
+
+There is also a dedicated **"Interactive Mode"** in case you don't like typing the same command over and over again. This is enabled in prebuilt binaries by default. 
+
+You can start the interactive mode by running the following command:
+```sh
+$ avnie interactive
+```
+
+If you'd like to make it the default way of using the tool, set the `AVRO_INTERACTIVE` environment variable to `1` in your shell configuration file (e.g. `.bashrc`, `.zshrc`, etc.).
+
+```sh
+# Add this to your shell configuration file.
+export AVRO_INTERACTIVE=1
 ```
 
 <br>

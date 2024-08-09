@@ -33,8 +33,8 @@ keywords = [
 ]
 
 [tool.poetry.scripts]
-avnie = "avnie.cli:run"
-avro = "avnie.cli:run"
+avnie = "avnie.main:run"
+avro = "avnie.main:run"
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -42,6 +42,7 @@ avro-py = "^2024.7.13"
 requests = "^2.32.3"
 pyclip = "^0.7.0"
 click = "^8.1.7"
+rich = "^13.7.1"
 
 [tool.poetry.group.dev.dependencies]
 nuitka = "^2.4.5"
