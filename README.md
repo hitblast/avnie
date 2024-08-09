@@ -59,8 +59,6 @@ Prebuilt binaries are available for **Windows, macOS, and Linux**. You can downl
 
 ### 🔸 Command Mode
 
-<video src="https://raw.githubusercontent.com/hitblast/avnie/main/assets/video_demo/noninteractive.mov"></video>
-
 The usage of avnie is pretty straightforward. You can either use `avro` or `avnie` as the keyword for executing avnie commands. Here are some examples:
 
 ```sh
@@ -99,8 +97,6 @@ $ avnie parse "আমি বাংলায় গান গাইতে ভাল�
 ### 🔸 Interactive Mode
 
 There is also a dedicated **"Interactive Mode"** in case you don't like typing the same command over and over again. This is enabled in prebuilt binaries by default. 
-
-<video src="https://raw.githubusercontent.com/hitblast/avnie/main/assets/video_demo/interactive.mov"></video>
 
 You can start the interactive mode by running the following command:
 ```sh
