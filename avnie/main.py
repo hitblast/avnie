@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: MIT
 
+# This is the non-interactive (command-based) version of the CLI.
+
 # Import third-party Python modules.
 from typing import Optional
 
@@ -10,6 +12,7 @@ import requests
 
 # Import the version number from the package.
 from avnie import __version__
+from avnie import interactive as interactive_mode
 
 
 # Define the CLI group.
@@ -34,6 +37,11 @@ def _handle_no_text(text: str, from_clipboard: bool) -> str:
 
 
 # Define the CLI commands.
+@app.command()
+def interactive() -> None:
+    interactive_mode.main()
+
+
 @app.command()
 @click.argument("text", required=False, type=str)
 @click.option("--bijoy", "-b", is_flag=True, help="Convert the text to Bijoy layout.")

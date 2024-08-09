@@ -57,6 +57,8 @@ Prebuilt binaries are available for **Windows, macOS, and Linux**. You can downl
 
 ## 🚀 Usage
 
+### Command Mode
+
 The usage of avnie is pretty straightforward. You can either use `avro` or `avnie` as the keyword for executing avnie commands. Here are some examples:
 
 ```sh
@@ -89,6 +91,18 @@ $ avnie parse "wikipedia" --ignore-remap  # no remap (can also use --i)
 # Convert to Bijoy on output.
 $ avnie parse "আমি বাংলায় গান গাইতে ভালবাসি" --bijoy  # or -b
 ```
+
+---
+
+### Interactive Mode
+
+There is also a dedicated "Interactive Mode" in case you don't like typing the same command over and over again. You can start the interactive mode by running the following command:
+
+```sh
+$ avnie interactive
+```
+
+Follow the on-screen instructions to use it accordingly.
 
 <br>
 
