@@ -86,7 +86,7 @@ jobs:
         key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
     - name: Install dependencies
-      run: make install
+      run: poetry install --sync --no-interaction --no-root
 
     - name: Build
       run: poetry run nuitka --clang --onefile --assume-yes-for-downloads avnie/interactive.py && mv ${{ matrix.oldfile }} ${{ matrix.newfile }}

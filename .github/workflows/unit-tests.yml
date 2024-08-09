@@ -30,7 +30,7 @@ jobs:
           virtualenvs-in-project: true
 
     - name: Install dependencies & project
-      run: make install
+      run: poetry install --sync --no-interaction
  
     - name: Run the tests
       run: poetry run pytest .
