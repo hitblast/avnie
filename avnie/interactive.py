@@ -2,7 +2,6 @@
 
 # This is the interactive (TUI-based) version of the CLI.
 
-# Import first-party Python modules.
 
 # Import third-party Python modules.
 from dataclasses import dataclass
@@ -11,6 +10,9 @@ import avro
 import pyclip
 from rich.console import Console
 from rich.prompt import Confirm, Prompt
+
+# Import the version number.
+from avnie import __version__
 
 
 # Define the dataclass for prompt options.
@@ -43,6 +45,7 @@ def _common_prompts() -> PromptOptions | None:
 def interactive(console: Console) -> None:
     while True:
         console.clear()
+        console.print(f"avnie [bold green]v{__version__}[/bold green]\n")
         action = Prompt.ask("What do you want to do?", choices=["parse", "reverse", "exit"])
 
         if action == "exit":
