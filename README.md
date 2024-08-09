@@ -96,13 +96,19 @@ $ avnie parse "আমি বাংলায় গান গাইতে ভাল�
 
 ### 🔸 Interactive Mode
 
-There is also a dedicated "Interactive Mode" in case you don't like typing the same command over and over again. You can start the interactive mode by running the following command:
+There is also a dedicated **"Interactive Mode"** in case you don't like typing the same command over and over again. This is enabled in prebuilt binaries by default. 
 
+You can start the interactive mode by running the following command:
 ```sh
 $ avnie interactive
 ```
 
-Follow the on-screen instructions to use it accordingly.
+If you'd like to make it the default way of using the tool, set the `AVRO_INTERACTIVE` environment variable to `1` in your shell configuration file (e.g. `.bashrc`, `.zshrc`, etc.).
+
+```sh
+# Add this to your shell configuration file.
+export AVRO_INTERACTIVE=1
+```
 
 <br>
 

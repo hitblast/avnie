@@ -3,6 +3,7 @@
 # This is the non-interactive (command-based) version of the CLI.
 
 # Import third-party Python modules.
+import os
 from typing import Optional
 
 import avro
@@ -111,4 +112,8 @@ def checkupdate() -> None:
 
 # Define the main function to run the CLI.
 def run() -> None:
-    app()
+    # If AVRO_INTERACTIVE is set, run the interactive mode by default.
+    if os.getenv("AVRO_INTERACTIVE") == "1":
+        interactive_mode.main()
+    else:
+        app()
