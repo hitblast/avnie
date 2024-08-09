@@ -68,10 +68,10 @@ $ avnie --help
 $ avro --help  # or
 
 # Parse a given English text to Bengali.
-$ avro parse "ami banglay gan gaite bhalobasi"
+$ avro parse "ami banglay gan gaite bhalObasi"
 
 # Reverse a given Bengali text to English.
-$ avro reverse "আমি বাংলায় গান গাইতে ভালবাসি"
+$ avro reverse "আমি বাংলায় গান গাইতে ভালোবাসি"
 ```
 
 More commands and features will be available as the project progresses in its development phase. For now, you can use the commands above to get started with the basic functionalities. Additional options can be found by running `avnie <command> --help`.
@@ -89,7 +89,7 @@ $ avnie parse "wikipedia"  # remap
 $ avnie parse "wikipedia" --ignore-remap  # no remap (can also use --i)
 
 # Convert to Bijoy on output.
-$ avnie parse "আমি বাংলায় গান গাইতে ভালবাসি" --bijoy  # or -b
+$ avnie parse "tumi ke?" --bijoy  # or -b
 ```
 
 ---
