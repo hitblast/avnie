@@ -57,7 +57,7 @@ Prebuilt binaries are available for **Windows, macOS, and Linux**. You can downl
 
 ## 🚀 Usage
 
-### Command Mode
+### 🔸 Command Mode
 
 The usage of avnie is pretty straightforward. You can either use `avro` or `avnie` as the keyword for executing avnie commands. Here are some examples:
 
@@ -94,7 +94,7 @@ $ avnie parse "আমি বাংলায় গান গাইতে ভাল�
 
 ---
 
-### Interactive Mode
+### 🔸 Interactive Mode
 
 There is also a dedicated "Interactive Mode" in case you don't like typing the same command over and over again. You can start the interactive mode by running the following command:
 
