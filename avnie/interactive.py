@@ -5,6 +5,7 @@
 
 # Import third-party Python modules.
 from dataclasses import dataclass
+from typing import Union
 
 import avro
 import pyclip
@@ -25,7 +26,7 @@ class PromptOptions:
 
 
 # Helper functions for the interactive function.
-def _common_prompts() -> PromptOptions | None:
+def _common_prompts() -> Union[PromptOptions, None]:
     skip_all = not Confirm.ask("Use advanced options?", default=False)
 
     if skip_all:

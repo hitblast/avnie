@@ -2,5 +2,5 @@
 
 
 # Version information.
-__version_info__ = (2024, 8, 9)
+__version_info__ = (2024, 10, 12)
 __version__ = ".".join(map(str, __version_info__))

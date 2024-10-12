@@ -1,13 +1,13 @@
 # SPDX-License-Identifier: MIT
 
 [tool.ruff]
-target-version = "py38"
+target-version = "py39"
 line-length = 110
 exclude = ["venv"]
 
 [tool.poetry]
 name = "avnie"
-version = "2024.8.9"
+version = "2024.10.12"
 description = "A fast & user-friendly command-line interface (CLI) for avro.py."
 authors = ["HitBlast <hitblastlive@gmail.com>"]
 license = "MIT"
@@ -37,7 +37,7 @@ avnie = "avnie.main:run"
 avro = "avnie.main:run"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 avro-py = "^2024.7.13"
 requests = "^2.32.3"
 pyclip = "^0.7.0"
