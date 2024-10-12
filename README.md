@@ -42,7 +42,7 @@ The project is made for those who'd like to use their terminal as a way of quick
 ## 🔨 Installation
 
 - ### Pip
-This package requires **Python 3.8 or higher** to be used inside your development environment.
+This package requires **Python 3.9 or higher** to be used inside your development environment.
 
 ```sh
 # Install / upgrade.
@@ -117,7 +117,7 @@ export AVRO_INTERACTIVE=1
 If you'd like to build the project from source for your local Python installation, you can follow the steps given below to get started:
 
 #### Requirements
-- [Python 3.8](https://www.python.org) or higher
+- [Python 3.9](https://www.python.org) or higher
 - The [Poetry](https://python-poetry.org) package manager
 
 #### Steps
