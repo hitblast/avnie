@@ -154,7 +154,7 @@ $ poetry run pytest .
 If you'd like to compile the project to a binary for your respective platform, you can follow the steps given below to get started:
 
 #### Requirements
-- [Python 3.12](https://www.python.org) or higher
+- [Python 3.13](https://www.python.org) or higher
 - The [Poetry](https://python-poetry.org) package manager
 - [Clang](https://clang.llvm.org) (preferred C compiler, you can use others as well)
 
