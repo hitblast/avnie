@@ -16,33 +16,33 @@ jobs:
       id-token: write
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-        virtualenvs-create: true
-        virtualenvs-in-project: true
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
 
-    - name: Install dependencies & build
-      run: |
-        make install
-        poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
-      
-    - name: Publish package
-      run: poetry publish --build
+      - name: Install dependencies & build
+        run: |
+          make install
+          poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
 
-    - name: Upload package to release
-      uses: svenstaro/upload-release-action@v2
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: dist/*
-        tag: ${{ github.ref }}
-        overwrite: true
-        file_glob: true
+      - name: Publish package
+        run: poetry publish --build
 
-  release-binaries-github:   
+      - name: Upload package to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: dist/*
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true
+
+  release-binaries-github:
     needs: release-pypi
     strategy:
       matrix:
@@ -63,38 +63,38 @@ jobs:
 
     runs-on: ${{ matrix.os }}
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      id: setup-python
-      uses: actions/setup-python@v5
-      with:
-        python-version: "3.13"
+      - name: Set up Python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
-    - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-        virtualenvs-create: true
-        virtualenvs-in-project: true
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
 
-    - name: Load cached venv
-      id: cached-pip-wheels
-      uses: actions/cache@v4
-      with:
-        path: ~/.cache
-        key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+      - name: Load cached venv
+        id: cached-pip-wheels
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache
+          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
-    - name: Install dependencies
-      run: poetry install --sync --no-interaction --no-root
+      - name: Install dependencies
+        run: poetry install --sync --no-interaction --no-root
 
-    - name: Build
-      run: poetry run nuitka --clang --onefile --assume-yes-for-downloads avnie/interactive.py && mv ${{ matrix.oldfile }} ${{ matrix.newfile }}
+      - name: Build
+        run: poetry run nuitka --clang --onefile --assume-yes-for-downloads avnie/interactive.py && mv ${{ matrix.oldfile }} ${{ matrix.newfile }}
 
-    - name: Upload package to release
-      uses: svenstaro/upload-release-action@v2
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: ${{ matrix.newfile }}
-        tag: ${{ github.ref }}
-        overwrite: true
+      - name: Upload package to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ${{ matrix.newfile }}
+          tag: ${{ github.ref }}
+          overwrite: true
