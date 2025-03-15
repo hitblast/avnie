@@ -2,14 +2,14 @@
 
 [[package]]
 name = "avro-py"
-version = "2025.2.21"
+version = "2025.3.7"
 description = "A modern Pythonic implementation of Avro Phonetic."
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "avro_py-2025.2.21-py3-none-any.whl", hash = "sha256:eaa182636d65b4c26cb1f442ae3e27f35a08cc73732c2150c9ed61fdd62fa924"},
-    {file = "avro_py-2025.2.21.tar.gz", hash = "sha256:5529a6c079c7f36279a0b0d5d922895a95f981a62f40ebb7cb7859443f14440a"},
+    {file = "avro_py-2025.3.7-py3-none-any.whl", hash = "sha256:82b05e972109759bc446cd712dafcd9728bd9acb0f8ff3b89853149dd5572ac2"},
+    {file = "avro_py-2025.3.7.tar.gz", hash = "sha256:12002851b97518bd4402247f07aa8e5be56ac5d54ea972ac51aaefb35a4daa0f"},
 ]
 
 [[package]]
