@@ -27,6 +27,9 @@ A fast & user-friendly command-line interface (CLI) for **avro.py**.
 
 <br>
 
+> [!WARNING]
+> This project has been discontinued and will no longer be maintained.
+
 ## ⚡ Overview
 
 **avnie** provides a fast and sleek command-line based user interface for the [avro.py](https://github.com/hitblast/avro.py) Python package. It allows you to easily do all of the necessary functions avro.py provides - parsing from English, reversing to Bengali, converting to other formats, you name it! And, avnie does this without the need of writing any actual code.
@@ -42,7 +45,7 @@ The project is made for those who'd like to use their terminal as a way of quick
 ## 🔨 Installation
 
 - ### Pip
-This package requires **Python 3.9 or higher** to be used inside your development environment.
+  This package requires **Python 3.9 or higher** to be used inside your development environment.
 
 ```sh
 # Install / upgrade.
@@ -77,6 +80,7 @@ $ avro reverse "আমি বাংলায় গান গাইতে ভাল
 More commands and features will be available as the project progresses in its development phase. For now, you can use the commands above to get started with the basic functionalities. Additional options can be found by running `avnie <command> --help`.
 
 Some **universal flags** for each commands include:
+
 ```sh
 # Automatically copy the output to clipboard.
 $ avnie parse "oiTa ke?" --copy-on-success  # or -c
@@ -96,9 +100,10 @@ $ avnie parse "tumi ke?" --bijoy  # or -b
 
 ### 🔸 Interactive Mode
 
-There is also a dedicated **"Interactive Mode"** in case you don't like typing the same command over and over again. This is enabled in prebuilt binaries by default. 
+There is also a dedicated **"Interactive Mode"** in case you don't like typing the same command over and over again. This is enabled in prebuilt binaries by default.
 
 You can start the interactive mode by running the following command:
+
 ```sh
 $ avnie interactive
 ```
@@ -117,6 +122,7 @@ export AVRO_INTERACTIVE=1
 If you'd like to build the project from source for your local Python installation, you can follow the steps given below to get started:
 
 #### Requirements
+
 - [Python 3.9](https://www.python.org) or higher
 - The [Poetry](https://python-poetry.org) package manager
 
@@ -154,11 +160,13 @@ $ poetry run pytest .
 If you'd like to compile the project to a binary for your respective platform, you can follow the steps given below to get started:
 
 #### Requirements
+
 - [Python 3.13](https://www.python.org) or higher
 - The [Poetry](https://python-poetry.org) package manager
 - [Clang](https://clang.llvm.org) (preferred C compiler, you can use others as well)
 
 #### Steps
+
 ```sh
 # Create a virtual environment using the venv command.
 $ python -m venv venv && source venv/bin/activate
