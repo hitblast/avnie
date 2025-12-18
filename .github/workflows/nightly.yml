@@ -62,7 +62,7 @@ jobs:
         run: poetry run nuitka --clang --onefile --assume-yes-for-downloads avnie/interactive.py && mv ${{ matrix.oldfile }} ${{ matrix.newfile }}
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: avnie-${{ matrix.os }}
           path: ${{ matrix.newfile }}
