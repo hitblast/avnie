@@ -13,9 +13,6 @@ Command-line interface to avro.py; transliteration in the terminal.
 
 ## 🔨 Installation
 
-> [!NOTE]
-> This package requires **Python 3.9 or higher** to be used inside your development environment.
-
 ```sh
 # Install using uv.
 uv tool install avnie
@@ -73,6 +70,25 @@ export AVRO_INTERACTIVE=1
 
 ---
 
-## 📋 License
+## Development
+
+avnie is based on the project structure provided by [uv](https://github.com/astral-sh/uv), and to get a simple setup ongoing, just use the follwoing commands:
+
+```bash
+# clone
+git clone https://github.com/hitblast/avnie.git
+
+# synchronize with uv
+cd avnie && uv sync --all-extras
+```
+
+A testing suite is included with the following deps: `pytest`, `pytest-mock`
+
+```bash
+# run this directly
+pytest .
+```
+
+## License
 
 Licensed under the [MIT License](https://github.com/hitblast/avnie/blob/main/LICENSE).
