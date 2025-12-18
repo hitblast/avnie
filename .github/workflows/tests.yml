@@ -1,0 +1,31 @@
+name: Tests & Lints CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ruff:
+    name: Ruff
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check
+        id: lintcheck
+        uses: chartboost/ruff-action@v1
+        continue-on-error: true
+        with:
+          args: |
+            check .
+            format --check .

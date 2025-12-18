@@ -12,9 +12,6 @@ import pyclip
 from rich.console import Console
 from rich.prompt import Confirm, Prompt
 
-# Import the version number.
-from avnie import __version__
-
 
 # Define the dataclass for prompt options.
 @dataclass
@@ -46,7 +43,6 @@ def _common_prompts() -> Union[PromptOptions, None]:
 def interactive(console: Console) -> None:
     while True:
         console.clear()
-        console.print(f"avnie [bold green]v{__version__}[/bold green]\n")
         action = Prompt.ask("What do you want to do?", choices=["parse", "reverse", "exit"])
 
         if action == "exit":

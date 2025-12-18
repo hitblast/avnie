@@ -5,16 +5,15 @@ target-version = "py39"
 line-length = 110
 exclude = ["venv"]
 
-[tool.poetry]
+[project]
 name = "avnie"
-version = "2024.10.12"
-description = "A fast & user-friendly command-line interface (CLI) for avro.py."
-authors = ["HitBlast <hitblastlive@gmail.com>"]
-license = "MIT"
+version = "2025.12.18"
+requires-python = ">=3.9"
+description = "Command-line interface to avro.py; transliteration in the terminal."
+authors = [{ name = "Anindya Shiddhartha" }]
 readme = "README.md"
+license = "MIT"
 packages = [{include = "avnie"}]
-homepage = "https://pypi.org/project/avnie"
-repository = "https://github.com/hitblast/avnie"
 keywords = [
     'python',
     'phonetics',
@@ -31,25 +30,26 @@ keywords = [
     'avnie-cli',
     'avro.py-cli'
 ]
+dependencies = [
+    "avro-py>=2025.8.11",
+    "click>=8.1.8",
+    "pyclip>=0.7.0",
+    "rich>=14.2.0",
+]
 
-[tool.poetry.scripts]
+[project.urls]
+Homepage = "https://pypi.org/project/avnie"
+Repository = "https://github.com/hitblast/avnie"
+
+[project.scripts]
 avnie = "avnie.main:run"
-avro = "avnie.main:run"
 
-[tool.poetry.dependencies]
-python = "^3.9"
-avro-py = ">=2024.7.13,<2026.0.0"
-requests = "^2.32.3"
-pyclip = "^0.7.0"
-click = "^8.1.7"
-rich = ">=13.7.1,<15.0.0"
-
-[tool.poetry.group.dev.dependencies]
-nuitka = "^2.4.5"
-ruff = ">=0.5.5,<0.12.0"
-pytest = "^8.3.2"
-pytest-mock = "^3.14.0"
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "pytest-mock>=3.15.1",
+]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
