@@ -2,16 +2,14 @@
 
 # <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" width="35px"/> avnie
 
-[![Downloads](https://static.pepy.tech/personalized-badge/avnie?period=total&units=international_system&left_color=grey&right_color=black&left_text=Downloads)](https://pepy.tech/project/avnie)
-![Python Version](https://img.shields.io/pypi/pyversions/avro.py.svg?color=black&label=Python)
-![License](https://img.shields.io/pypi/l/avnie.svg?color=black&label=License)
+Command-line interface to avro.py; transliteration in the terminal.
+
+[![Downloads](https://static.pepy.tech/personalized-badge/avnie?period=total&units=international_system&left_text=Downloads)](https://pepy.tech/project/avnie)
+![Python Version](https://img.shields.io/pypi/pyversions/avro.py.svg?label=Python)
+![License](https://img.shields.io/pypi/l/avnie.svg?label=License)
 [![Tests & Lints CI](https://github.com/hitblast/avnie/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/hitblast/avnie/actions/workflows/tests.yml)
 
 </div>
-
-## ⚡ Overview
-
-avnie provides a terminal interface for the [avro.py](https://github.com/hitblast/avro.py) project. It allows you to transliterate from English Roman script to Bangla and vice-versa.
 
 ## 🔨 Installation
 
